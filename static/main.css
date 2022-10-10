@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: darkseagreen;
+}
+
+.task{
+    background: yellow;
+    text-align: center;
+}
+
+.task-form{
+    background: aqua;
+}
