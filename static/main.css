@@ -7,11 +7,19 @@ body{
     background: darkseagreen;
 }
 
+a{
+    text-align: center;
+}
+
 .task{
     background: yellow;
-    text-align: center;
 }
 
 .task-form{
     background: aqua;
+    text-align: center;
+}
+
+.task-done{
+    background: grey;
 }

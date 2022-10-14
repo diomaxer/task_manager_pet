@@ -1,6 +1,23 @@
 {% extends 'base.html' %}
 {% block page %}
 <div>
-    {{ task }} {{task.done}}
+    <div>
+        {{ task }}:
+        {% if task.done %}
+            Done
+        {% else %}
+            in progress
+        {% endif %} <br>
+        {{ task.description }} <br>
+        {% if task.head_task %}
+            Наследуется от: {{ task.head_task }} <br>
+        {% endif %}
+    </div>
+<hr>
+<form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit">
+    </form>
 </div>
 {% endblock %}

@@ -1,19 +1,22 @@
 {% extends 'base.html' %}
 {% block page %}
-<div class="all-tasks">
-    {% for task in tasks %}
-        <div class="task">
-            <a href={% url 'task-detail' task.id %}>{{ task.title }}</a>
-            {{ task.done }}
-            <input type="checkbox" {% if task.done %} checked {% endif %}> <hr>
-        </div>
-    {% endfor %}
+<div>
+    <div>
+        {% for task in tasks %}
+            <a href={% url 'task-detail' task.id %}><div class="task">
+            {{ task.title }}
+        </div></a>
+        {% endfor %}
+    </div>
+    <div>
+        {% for task in done_tasks %}
+            <a href={% url 'task-detail' task.id %}><div class="task-done">
+            {{ task.title }}
+        </div></a>
+        {% endfor %}
+    </div>
 </div>
 <div class="task-form">
-    <form method="post">
-        {% csrf_token %}
-        {{ form }} <br> <br>
-        <input type="submit" value="Add task">
-    </form>
+    <a href={% url 'task-create' %}>Добавить задание</a>
 </div>
 {% endblock %}
