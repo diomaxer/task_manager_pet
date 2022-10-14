@@ -16,19 +16,27 @@ def task_view(request):
 
 def task_detail(request, pk):
     task = Task.objects.get(id=pk)
-    form = TaskForm(initial=task.__dict__)
-    # if request.method == 'POST':
-    #     task.done = not task.done
-    #     task.save()
-    #     return render(request, 'task_detail.html', {'task': task, 'form': form})
+    form = TaskForm(
+        initial={
+            'title': task.title,
+            'description': task.description,
+            'head_task': task.head_task,
+            'deadline': task.deadline,
+        })
+    print(task.deadline)
     if request.method == 'POST':
-        form = TaskForm(request.POST)
-        if form.is_valid():
-            print()
-            print(form.cleaned_data['description'])
-            task.title = form.cleaned_data['title']
-            task.description = form.cleaned_data['description']
-            task.head_task = form.cleaned_data['head_task']
+        if 'update' in request.POST:
+            form = TaskForm(request.POST)
+            if form.is_valid():
+                task.title = form.cleaned_data['title']
+                task.description = form.cleaned_data['description']
+                task.head_task = form.cleaned_data['head_task']
+                task.deadline = form.cleaned_data['deadline']
+                task.save()
+                print(form.cleaned_data['deadline'])
+                return render(request, 'task_detail.html', {'task': task, 'form': form})
+        elif 'done' in request.POST:
+            task.done = not task.done
             task.save()
             return render(request, 'task_detail.html', {'task': task, 'form': form})
     return render(request, 'task_detail.html', {'task': task, 'form': form})

@@ -12,12 +12,24 @@
         {% if task.head_task %}
             Наследуется от: {{ task.head_task }} <br>
         {% endif %}
+        {{ task.created_at }} <br>
+        {% if task.deadline %}
+            Дедлайн: {{ task.deadline }} <br>
+        {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        {% if task.done %}
+            <input type="submit" name="done" value="Set in progress">
+            {% else %}
+            <input type="submit" name="done" value="Done">
+        {% endif %}
+    </form>
     </div>
 <hr>
 <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Submit">
+        <input type="submit" name="update" value="Submit">
     </form>
 </div>
 {% endblock %}
