@@ -1,35 +1,22 @@
 {% extends 'base.html' %}
 {% block page %}
-<div>
-    <div>
-        {{ task }}:
-        {% if task.done %}
-            Done
-        {% else %}
-            in progress
-        {% endif %} <br>
-        {{ task.description }} <br>
-        {% if task.head_task %}
-            Наследуется от: {{ task.head_task }} <br>
-        {% endif %}
-        {{ task.created_at }} <br>
-        {% if task.deadline %}
-            Дедлайн: {{ task.deadline }} <br>
-        {% endif %}
-    <form method="post">
-        {% csrf_token %}
-        {% if task.done %}
-            <input type="submit" name="done" value="Set in progress">
-            {% else %}
-            <input type="submit" name="done" value="Done">
-        {% endif %}
-    </form>
+<div class="main-content">
+    <div class="detail-page">
+        <p class="title"><p>{{ task }}</p> <p>{% if task.done %} Done {% else %} in progress {% endif %}</p></p>
+        <div class="description">{{ task.description|linebreaks }}</div>
+        <p class="head-task">{% if task.head_task %} Main task: <a href="{% url 'task-detail' task.head_task.id %}">{{ task.head_task }}</a>{% endif %}</p>
+        <p class="created-at">{{ task.created_at }}</p>
+        <p class="deadline">{% if task.deadline %} Deadline: {{ task.deadline }} {% endif %}</p>
+        <form method="post">
+            {% csrf_token %}
+            {% if task.done %}
+                <input type="submit" class="button" name="done" value="Set in progress">
+                {% else %}
+                <input type="submit" class="button" name="done" value="Done">
+            {% endif %}
+        </form>
     </div>
-<hr>
-<form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" name="update" value="Submit">
-    </form>
 </div>
 {% endblock %}
+
+

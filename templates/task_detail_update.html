@@ -9,8 +9,13 @@
                    {{ elem.label_tag }} {{ elem }}
                </div>
             {% endfor %}
-            <p><input type="submit" class="button" value="Add task"></p>
+            <p><input type="submit" name="update" class="button" value="Add task"></p>
         </form>
     </div>
 </div>
+{#<form method="post">#}
+{#        {% csrf_token %}#}
+{#        {{ form.as_p }}#}
+{#        <input type="submit" name="update" value="Submit">#}
+{#</form>#}
 {% endblock %}

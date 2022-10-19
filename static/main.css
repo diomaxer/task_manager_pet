@@ -7,19 +7,118 @@ body{
     background: darkseagreen;
 }
 
+input.button{
+    color: white;
+    background: red;
+    border-radius: 25px;
+    padding: 2% 10%;
+}
+
 a{
     text-align: center;
+    outline: none;
+    text-decoration: none;
 }
 
-.task{
+.main-content{
+    margin-top: 3%;
+    margin-left: auto;
+    margin-right: auto;
+    background: wheat;
+    width: 80%;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.task-create-link{
+    background: lightblue;
+    margin: 1% 2%;
+    padding: 1% 4%;
+    border-radius: 25px;
+    text-align: left;
+}
+
+.main-content-detail{
+    margin: 1% 2%;
+    border-radius: 25px;
+    text-align: center;
     background: yellow;
+    display: flex;
+    padding: 2% 4%;
+    justify-content: space-between;
 }
 
-.task-form{
-    background: aqua;
+input{
+    padding-left: 0.5%;
+}
+
+/*textarea{*/
+/*    border-radius: 25px;*/
+/*}*/
+
+form.task-create{
+    margin: 1% 2%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+form.task-create div.id_title{
+    /*background: indianred;*/
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+form.task-create div.id_title input {
+    width: 90%;
+}
+
+form.task-create div.id_description{
+    margin: 1%;
+    align-self: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     text-align: center;
 }
 
-.task-done{
-    background: grey;
+
+form.task-create div.id_head_task{
+    margin-left: 5%;
+    width: 55%;
+}
+
+form.task-create div.id_deadline{
+    width: 40%;
+}
+
+form.task-create div.id_title input.button{
+    margin-top: 2%;
+    width: 90%;
+}
+
+textarea{
+    height: 70vh;
+    padding: 3% 5%;
+}
+
+.detail-page{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 1% 2%;
+}
+
+
+.detail-page div.description{
+    width: 100%;
+    height: 70vh;
+    padding: 3% 5%;
+    background: white;
+    border-radius: 25px;
+    margin-bottom: 2%;
 }
