@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     #apps
     'tasks',
+    'users',
 ]
 
 MIDDLEWARE = [

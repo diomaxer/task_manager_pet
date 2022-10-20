@@ -12,12 +12,26 @@ input.button{
     background: red;
     border-radius: 25px;
     padding: 2% 10%;
+    width: 15vh;
 }
 
 a{
     text-align: center;
     outline: none;
     text-decoration: none;
+    background: lightblue;
+    margin: 1% 2%;
+    padding: 1% 4%;
+    border-radius: 25px;
+}
+
+.header{
+    width: 80%;
+    background: wheat;
+    margin: 3% auto 0 auto;
+    border-radius: 25px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .main-content{
@@ -30,7 +44,6 @@ a{
     display: flex;
     flex-direction: column;
 }
-
 
 .task-create-link{
     background: lightblue;
@@ -45,6 +58,16 @@ a{
     border-radius: 25px;
     text-align: center;
     background: yellow;
+    display: flex;
+    padding: 2% 4%;
+    justify-content: space-between;
+}
+
+.main-content-detail-done{
+    margin: 1% 2%;
+    border-radius: 25px;
+    text-align: center;
+    background: lightgray;
     display: flex;
     padding: 2% 4%;
     justify-content: space-between;
@@ -98,7 +121,7 @@ form.task-create div.id_deadline{
 
 form.task-create div.id_title input.button{
     margin-top: 2%;
-    width: 90%;
+    /*width: 90%;*/
 }
 
 textarea{
@@ -113,12 +136,74 @@ textarea{
     margin: 1% 2%;
 }
 
+.detail-page a{
+    padding: 0 1%;
+    margin-top: auto;
+    /*padding: 1% 1%;*/
+    /*margin-top: 0;*/
+    /*background: fuchsia;*/
+}
+
 
 .detail-page div.description{
     width: 100%;
-    height: 70vh;
+    height: 40vh;
     padding: 3% 5%;
     background: white;
     border-radius: 25px;
     margin-bottom: 2%;
+}
+
+.detail-page div.child-tasks{
+    margin-bottom: 2%;
+    padding: 0 3%;
+    width: 100%;
+}
+
+
+.detail-page div.subtask{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 1%;
+}
+
+.detail-page div.subtask .child-task-link{
+    width: 35%;
+}
+
+.detail-page div.subtask .child-task-status{
+    width: 65%;
+}
+
+.log-form{
+    margin: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.main-content h2{
+    width: 100%;
+    text-align: center;
+}
+
+.log-form-detail{
+    margin-left: 40%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.log-form-detail .error{
+    width: 100%;
+}
+
+.log-form-detail .label-tag{
+    width: 10%;
+}
+
+.log-form input.button{
+    padding: 0.5% 0.5%;
+    align-items: flex-end;
+    margin-left: 45%;
 }

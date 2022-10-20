@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
+{% block title %}
+    Task Manager
+{% endblock %}
 {% block page %}
 <div class="main-content">
-        <a href={% url 'task-create' %} class="task-create-link">
-            Добавить задание
-        </a>
+    <a href={% if user.is_authenticated  %} {% url 'task-create' %} {% else %} {% url 'sign_up' %} {% endif %} class="task-create-link">+ Add task</a>
     {% for task in tasks %}
-        <a href="{% url 'task-detail' task.id %}" class="main-content-detail">
+        <a href="{% url 'task-detail' task.id %}" class="{% if task.done %}main-content-detail-done{% else %}main-content-detail{% endif %}">
             <div>{{ task.title }}</div>
              <form method="post">
                 {% csrf_token %}

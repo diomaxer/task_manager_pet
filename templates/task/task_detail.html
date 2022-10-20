@@ -1,9 +1,27 @@
 {% extends 'base.html' %}
+{% block title %}
+    My Task
+{% endblock %}
 {% block page %}
 <div class="main-content">
     <div class="detail-page">
-        <p class="title"><p>{{ task }}</p> <p>{% if task.done %} Done {% else %} in progress {% endif %}</p></p>
+        <p class="title">
+            <p>{{ task }}</p>
+            <p>{% if task.done %} Done {% else %} in progress {% endif %}</p>
+            <a href="{% url 'task-detail-update' task.id %}">Modify task</a>
+        </p>
         <div class="description">{{ task.description|linebreaks }}</div>
+        <div class="child-tasks">
+            {% if child_tasks %}
+                <h4>Subtasks</h4>
+            <div class="subtask">
+            {% for elem in child_tasks %}
+                <p class="child-task-link"><a href="{% url 'task-detail' elem.id %}">{{ elem }}</a></p>
+                <p class="child-task-status">{% if elem.done %} Done {% else %} in progress {% endif %}</p>
+            {% endfor %}
+            </div>
+        {% endif %}
+        </div>
         <p class="head-task">{% if task.head_task %} Main task: <a href="{% url 'task-detail' task.head_task.id %}">{{ task.head_task }}</a>{% endif %}</p>
         <p class="created-at">{{ task.created_at }}</p>
         <p class="deadline">{% if task.deadline %} Deadline: {{ task.deadline }} {% endif %}</p>

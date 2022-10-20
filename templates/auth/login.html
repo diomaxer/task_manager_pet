@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}
+    Log In
+{% endblock %}
+{% block page %}
+    <div class="main-content">
+        <form class="log-form" method="post">
+            <h2>Log in</h2>
+            {% csrf_token %}
+{#            {{ form.as_p }}#}
+            {% for elem in form %}
+                <div class="log-form-detail">
+                    <p class="label-tag">{{ elem.label_tag }}</p>
+                    <p class="elem">{{ elem }}</p>
+                    <p class="error">{{ elem.errors }}</p>
+                </div>
+            {% endfor %}
+            <input type="submit" class="button" value="Log in">
+        </form>
+    </div>
+{% endblock %}
