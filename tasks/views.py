@@ -93,3 +93,7 @@ def task_detail_update(request, pk):
                 task.save()
                 return redirect('task-detail', pk=pk)
     return render(request, 'task/task_detail_update.html', {'task': task, 'form': form})
+
+
+def html_view(request):
+    return render(request, 'boot.html', {})
