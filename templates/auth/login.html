@@ -1,21 +1,26 @@
-{% extends 'base.html' %}
+{% extends 'boot.html' %}
+{% load bootstrap5 %}
+
 {% block title %}
     Log In
 {% endblock %}
 {% block page %}
-    <div class="main-content">
+    <div class="auth-container">
         <form class="log-form" method="post">
             <h2>Log in</h2>
             {% csrf_token %}
-{#            {{ form.as_p }}#}
-            {% for elem in form %}
-                <div class="log-form-detail">
-                    <p class="label-tag">{{ elem.label_tag }}</p>
-                    <p class="elem">{{ elem }}</p>
-                    <p class="error">{{ elem.errors }}</p>
-                </div>
-            {% endfor %}
-            <input type="submit" class="button" value="Log in">
+            {% bootstrap_form form %}
+            <p><input type="submit" class="button" value="Log in"></p>
         </form>
     </div>
 {% endblock %}
+
+
+
+{#{% for elem in form %}#}
+{#                <div class="log-form-detail">#}
+{#                    <p class="label-tag">{{ elem.label_tag }}</p>#}
+{#                    <p class="elem">{{ elem }}</p>#}
+{#                    <p class="error">{{ elem.errors }}</p>#}
+{#                </div>#}
+{#            {% endfor %}#}

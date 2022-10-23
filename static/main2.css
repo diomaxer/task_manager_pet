@@ -26,9 +26,9 @@
 }
 
 .navbar-links{
- width: 50vh;
+ /*width: 50vh;*/
  display: flex;
- justify-content: space-around;
+ justify-content: flex-end;
 }
 
 .nav-link{
@@ -40,7 +40,71 @@
  color: #C6A680;
 }
 
-.header{
- height: 100vh;
+body{
  background: #F1E7E8;
+}
+
+.tasks{
+ margin: 10%;
+}
+
+.task-link, .task-create-link{
+ /*background: #DCC0B5;*/
+ background: white;
+ height: 5vh;
+ border-radius: 25px;
+ margin: 2% 0;
+}
+
+a{
+ /*color: #f4f4f4;*/
+ color: black;
+ text-decoration: none ;
+ display: flex;
+ justify-content: center;
+}
+nav a:hover{
+ color: #7D9EA7;
+}
+
+.task-create-link{
+ /*background: #7D9EA7;*/
+ background: #C5C5DB;
+}
+.task-link .task-name{
+ /*max-width: 10px;*/
+ width: 50%;
+}
+.task-link .task-done{
+ width: 20%;
+}
+.task-link a:hover, .task-create-link a:hover{
+ height: 5vh;
+ background: #E0F9EE;
+ border-radius: 25px;
+}
+
+/* AUTH */
+.auth-container{
+ margin: 10% auto;
+ width: 50vh;
+}
+
+.auth-container h2{
+ text-align: center;
+}
+
+.button{
+ padding: 0 5%;
+ color: #f4f4f4;
+ border: 4px solid #72A56C;
+ border-radius: 5px;
+ background: #72A56C;
+}
+.button:hover{
+  border: 4px solid #608C5B;
+ background: #608C5B;
+}
+.log-form p{
+ margin-top: 3%;
 }

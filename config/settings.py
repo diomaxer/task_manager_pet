@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     #apps
     'tasks',
     'users',
+    'bootstrap5',
 ]
 
 MIDDLEWARE = [

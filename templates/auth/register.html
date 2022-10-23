@@ -1,20 +1,24 @@
-{% extends 'base.html' %}
+{% extends 'boot.html' %}
+{% load bootstrap5 %}
 {% block title %}
     Sign Up
 {% endblock %}
 {% block page %}
-    <div class="main-content">
+    <div class="auth-container">
         <form class="log-form" method="post">
             <h2>Sign up</h2>
             {% csrf_token %}
-            {% for elem in form %}
-                <div class="log-form-detail">
-                    <p class="label-tag">{{ elem.label_tag }}</p>
-                    <p class="elem">{{ elem }}</p>
-                    <p class="error">{{ elem.errors }}</p>
-                </div>
-            {% endfor %}
-            <input type="submit" class="button" value="Sign up">
+            {% bootstrap_form form show_help=False %}
+            <p><input type="submit" class="button" value="Sign up"></p>
         </form>
     </div>
 {% endblock %}
+
+
+{#{% for elem in form %}#}
+{#                <div class="log-form-detail">#}
+{#                    <p class="label-tag">{{ elem.label_tag }}</p>#}
+{#                    <p class="elem">{{ elem }}</p>#}
+{#                    <p class="error">{{ elem.errors }}</p>#}
+{#                </div>#}
+{#            {% endfor %}#}

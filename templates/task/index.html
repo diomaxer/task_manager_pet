@@ -1,22 +1,21 @@
-{% extends 'base.html' %}
+{% extends 'boot.html' %}
 {% block title %}
     Single Man Task Manager
 {% endblock %}
 {% block page %}
-<div class="main-content">
-    <a href={% if user.is_authenticated  %} {% url 'task-create' %} {% else %} {% url 'sign_up' %} {% endif %} class="task-create-link">+ Add task</a>
-    {% for task in tasks %}
-        <a href="{% url 'task-detail' task.id %}" class="{% if task.done %}main-content-detail-done{% else %}main-content-detail{% endif %}">
-            <div>{{ task.title }}</div>
-             <form method="post">
-                {% csrf_token %}
-                {% if task.done %}
-                    <input type="submit" class="button" name="{{ task.id }}" value="Set in progress">
-                    {% else %}
-                    <input type="submit" class="button" name="{{ task.id }}" value="Done">
-                {% endif %}
-            </form>
+<div class="tasks">
+    <div class="task-create-link">
+        <a href="{% if user.is_authenticated  %}{% url 'task-create' %}{% else %}{% url 'log_in' %}{% endif %}">
+            <p class="">Create task</p>
         </a>
+    </div>
+    {% for task in tasks %}
+    <div class="task-link">
+        <a href="{% url 'task-detail' task.id %}">
+            <p class="task-name ">{{ task }}</p>
+            <p class="task-done">{% if task.done %}Done{% else %}In progress{% endif %}</p>
+        </a>
+    </div>
     {% endfor %}
 </div>
 {% endblock %}
