@@ -1,24 +1,15 @@
-{% extends 'base.html' %}
+{% extends 'boot.html' %}
+{% load bootstrap5 %}
 {% block title %}
-    Update Task
+    Create task
 {% endblock %}
 {% block page %}
-<div class="main-content">
-    <div class="task-form">
-        <form method="post" class="task-create">
+    <div class="create-container">
+        <form class="log-form" method="post">
+            <h2>Update Task</h2>
             {% csrf_token %}
-            {% for elem in form %}
-               <div class="{{ elem.id_for_label }}">
-                   {{ elem.label_tag }} {{ elem }}
-               </div>
-            {% endfor %}
-            <p><input type="submit" name="update" class="button" value="Add task"></p>
+            {% bootstrap_form form %}
+            <p><input type="submit" class="button" value="Update"></p>
         </form>
     </div>
-</div>
-{#<form method="post">#}
-{#        {% csrf_token %}#}
-{#        {{ form.as_p }}#}
-{#        <input type="submit" name="update" value="Submit">#}
-{#</form>#}
 {% endblock %}

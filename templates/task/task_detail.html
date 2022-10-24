@@ -1,40 +1,66 @@
-{% extends 'base.html' %}
+{% extends 'boot.html' %}
+{% load bootstrap5 %}
 {% block title %}
     My Task
 {% endblock %}
 {% block page %}
-<div class="main-content">
-    <div class="detail-page">
-        <p class="title">
-            <p>{{ task }}</p>
-            <p>{% if task.done %} Done {% else %} in progress {% endif %}</p>
-            <a href="{% url 'task-detail-update' task.id %}">Modify task</a>
-        </p>
-        <div class="description">{{ task.description|linebreaks }}</div>
-        <div class="child-tasks">
-            {% if child_tasks %}
-                <h4>Subtasks</h4>
-            <div class="subtask">
-            {% for elem in child_tasks %}
-                <p class="child-task-link"><a href="{% url 'task-detail' elem.id %}">{{ elem }}</a></p>
-                <p class="child-task-status">{% if elem.done %} Done {% else %} in progress {% endif %}</p>
-            {% endfor %}
-            </div>
-        {% endif %}
+<div class="detail">
+    <div class="detail-name">
+        <h4>Task</h4>
+        <div class="detail-name-title">
+            <h2 width>{{ task.title }}</h2>
+            <h5>{% if task.done %}Done{% else %}In progress{% endif %}</h5>
         </div>
-        <p class="head-task">{% if task.head_task %} Main task: <a href="{% url 'task-detail' task.head_task.id %}">{{ task.head_task }}</a>{% endif %}</p>
-        <p class="created-at">{{ task.created_at }}</p>
-        <p class="deadline">{% if task.deadline %} Deadline: {{ task.deadline }} {% endif %}</p>
+    </div>
+    <div class="detail-content">
+        <div class="detail-content-time">
+            <p>Created at: {{ task.created_at }}</p>
+            <p>{% if task.deadline %}Deadline: {{ task.deadline }}{% endif %}</p>
+        </div>
+        <div class="detail-content-links">
+            <p class="detail-content-head-task">{% if task.head_task %}Parent task: <a href="{% url 'task-detail' task.head_task.id %}">{{ task.head_task }}</a>{% endif %}</p>
+        </div>
+        <p>Description</p>
+        <div class="detail-content-description">
+            <p>{{ task.description|linebreaks }}</p>
+        </div>
+    </div>
+    <div class="simple-tasks">
+        {% for task in simple_tasks %}
+            {% if task.done %}
+                <form class="simple-task-form-done" method="post">
+                    {% csrf_token %}
+                    <p><s>{{ forloop.counter }}. {{ task.title }}</s></p>
+                    <div class="simple-task-buttons">
+                        <input type="submit" class="little-button" name="simple-task-done-{{ task.id }}" value="Set in progress">
+                        <input type="submit" class="little-button-delete" name="simple-task-delete-{{ task.id }}" value="Delete">
+                    </div>
+                </form>
+            {% else %}
+                <form class="simple-task-form" method="post">
+                    <p>{{ forloop.counter }}. {{ task.title }}</p>
+                    {% csrf_token %}
+                    <div class="simple-task-buttons">
+                        <input type="submit" class="little-button" name="simple-task-done-{{ task.id }}" value="Done">
+                        <input type="submit" class="little-button-delete" name="simple-task-delete-{{ task.id }}" value="Delete">
+                    </div>
+                </form>
+            {% endif %}
+        {% endfor %}
+    <div class="detail-create-simple-task">
+        <form class="log-form" method="post">
+            {% csrf_token %}
+            {% bootstrap_form form show_label=False %}
+            <p><input type="submit" class="button" name="simple-task" value="Add mini task"></p>
+        </form>
+    </div>
+    </div>
+    <div class="detail-content-update-save">
+        <p><a href="{% url 'task-detail-update' task.id %}">Update Task</a></p>
         <form method="post">
             {% csrf_token %}
-            {% if task.done %}
-                <input type="submit" class="button" name="done" value="Set in progress">
-                {% else %}
-                <input type="submit" class="button" name="done" value="Done">
-            {% endif %}
+            <input type="submit" class="button" name="done" value="{% if task.done %}Set in progress{% else %}Done{% endif %}">
         </form>
     </div>
 </div>
 {% endblock %}
-
-

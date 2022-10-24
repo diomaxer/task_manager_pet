@@ -13,3 +13,11 @@ class Task(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class SimpleTask(models.Model):
+    title = models.CharField(max_length=100) # Заменить на mini_task
+    done = models.BooleanField(default=False)
+    head_task = models.ForeignKey(Task, on_delete=models.CASCADE)
+
+

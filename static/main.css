@@ -1,210 +1,230 @@
-*{
-    margin: 0;
-    padding: 0;
+* {
+ margin: 0;
+ padding: 0;
+}
+.copy {
+ color:#F1E7E8;
+ color:#DCC0B5;
+ color:#C6A680;
+ color:#7D9EA7;
+ color:#72A56C;
+}
+.navbar{
+ background-color: #72A56C;
+ display: flex;
+ justify-content: space-around;
+}
+
+.nav-link , .navbar-home{
+ color: #F1E7E8;
+ cursor: pointer;
+ text-decoration: none;
+}
+
+.navbar-home:hover{
+ color: #F1E7E8;
+}
+
+.navbar-links{
+ /*width: 50vh;*/
+ display: flex;
+ justify-content: flex-end;
+}
+
+.nav-link{
+ margin-right: 1em !important;
+}
+
+.nav-link:hover{
+ background: #f4f4f4;
+ color: #C6A680;
 }
 
 body{
-    background: darkseagreen;
+ background: #F1E7E8;
 }
 
-input.button{
-    color: white;
-    background: red;
-    border-radius: 25px;
-    padding: 2% 10%;
-    width: 15vh;
+.tasks{
+ margin: 10%;
 }
 
-a{
-    text-align: center;
-    outline: none;
-    text-decoration: none;
-    background: lightblue;
-    margin: 1% 2%;
-    padding: 1% 4%;
-    border-radius: 25px;
+.task-link, .task-create-link{
+ background: #C5C5DB;
+ height: 5vh;
+ border-radius: 25px;
+ margin: 2% 0;
 }
 
-.header{
-    width: 80%;
-    background: wheat;
-    margin: 3% auto 0 auto;
-    border-radius: 25px;
-    display: flex;
-    justify-content: space-between;
+nav a, .tasks a{
+ color: black;
+ text-decoration: none ;
+ display: flex;
+ justify-content: center;
 }
 
-.main-content{
-    margin-top: 3%;
-    margin-left: auto;
-    margin-right: auto;
-    background: wheat;
-    width: 80%;
-    border-radius: 25px;
-    display: flex;
-    flex-direction: column;
+nav a:hover{
+ color: #7D9EA7;
 }
 
 .task-create-link{
-    background: lightblue;
-    margin: 1% 2%;
-    padding: 1% 4%;
-    border-radius: 25px;
-    text-align: left;
+ background: #7D9EA7;
+}
+.task-link .task-name{
+ width: 50%;
+}
+.task-link .task-done{
+ width: 20%;
+}
+.task-link a:hover, .task-create-link a:hover{
+ height: 5vh;
+ background: #E0F9EE;
+ border-radius: 25px;
 }
 
-.main-content-detail{
-    margin: 1% 2%;
-    border-radius: 25px;
-    text-align: center;
-    background: yellow;
-    display: flex;
-    padding: 2% 4%;
-    justify-content: space-between;
+.auth-container{
+ margin: 10% auto;
+ width: 50vh;
 }
 
-.main-content-detail-done{
-    margin: 1% 2%;
-    border-radius: 25px;
-    text-align: center;
-    background: lightgray;
-    display: flex;
-    padding: 2% 4%;
-    justify-content: space-between;
+.create-container{
+ margin: 6% auto;
+ width: 50vh;
 }
 
-input{
-    padding-left: 0.5%;
+.auth-container h2, .create-container h2{
+ text-align: center;
 }
 
-/*textarea{*/
-/*    border-radius: 25px;*/
-/*}*/
-
-form.task-create{
-    margin: 1% 2%;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+.button{
+ padding: 0 5%;
+ color: #f4f4f4;
+ border: 4px solid #72A56C;
+ border-radius: 5px;
+ background: #72A56C;
 }
 
-form.task-create div.id_title{
-    /*background: indianred;*/
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
+.little-button, .little-button-delete{
+ padding: 0 2%;
+ color: #f4f4f4;
+ border: 1px solid #72A56C;
+ border-radius: 25px;
+ background: #72A56C;
 }
 
-form.task-create div.id_title input {
-    width: 90%;
+.little-button-delete{
+ border: 1px solid red;
+ background: red;
 }
 
-form.task-create div.id_description{
-    margin: 1%;
-    align-self: center;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    text-align: center;
+.button:hover{
+ border: 4px solid #608C5B;
+ background: #608C5B;
+}
+.log-form p{
+ margin-top: 3%;
 }
 
-
-form.task-create div.id_head_task{
-    margin-left: 5%;
-    width: 55%;
+.detail{
+ margin: 5% 15%;
+ background: #F1E7E8;
+ height: 100vh;
 }
 
-form.task-create div.id_deadline{
-    width: 40%;
+.detail-name{
+ border: 3px solid #72A56C;
+ border-radius: 25px;
+ display: flex;
+ padding-left: 2%;
+ align-items: baseline;
+ background: linear-gradient(to right, #72A56C 10%, transparent 10%);
 }
 
-form.task-create div.id_title input.button{
-    margin-top: 2%;
-    /*width: 90%;*/
+.detail-name-title{
+ width: 90%;
+ display: flex;
+ justify-content: space-between;
+ align-items: baseline;
 }
 
-textarea{
-    height: 70vh;
-    padding: 3% 5%;
+.detail-name h4{
+ color: #F1E7E8;
+ width: 8%;
+ text-align: center;
+ /*background: red;*/
 }
 
-.detail-page{
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    margin: 1% 2%;
+.detail-name h2{
+ margin: 0 3%;
 }
 
-.detail-page a{
-    padding: 0 1%;
-    margin-top: auto;
-    /*padding: 1% 1%;*/
-    /*margin-top: 0;*/
-    /*background: fuchsia;*/
+.detail-content{
+ margin: 1% 5%;
 }
 
-
-.detail-page div.description{
-    width: 100%;
-    height: 40vh;
-    padding: 3% 5%;
-    background: white;
-    border-radius: 25px;
-    margin-bottom: 2%;
+.detail-content-time{
+ display: flex;
+ justify-content: space-between;
 }
 
-.detail-page div.child-tasks{
-    margin-bottom: 2%;
-    padding: 0 3%;
-    width: 100%;
+.detail-content-head-task{
+ text-align: end;
 }
 
-
-.detail-page div.subtask{
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0 1%;
+.detail-content-description{
+ padding: 1% 4%;
+ background: #f4f4f4;
+ border-radius: 25px;
 }
 
-.detail-page div.subtask .child-task-link{
-    width: 35%;
+.detail-content p a{
+ background: #72A56C;
+ border-radius: 25px;
+ padding: 0.5%;
+ color: #F1E7E8;
+ cursor: pointer;
+ text-decoration: none;
 }
 
-.detail-page div.subtask .child-task-status{
-    width: 65%;
+.simple-tasks{
+ margin: 5% 15%;
 }
 
-.log-form{
-    margin: 5%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+.simple-task-form, .simple-task-form-done{
+ border-radius: 25px;
+ display: flex;
+ justify-content: space-between;
 }
 
-.main-content h2{
-    width: 100%;
-    text-align: center;
+.simple-task-buttons p{
+ width: 80%;
 }
 
-.log-form-detail{
-    margin-left: 40%;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
+.simple-task-buttons{
+ height: 1%;
+ display: flex;
+ width: 20%;
+ justify-content: space-between;
 }
 
-.log-form-detail .error{
-    width: 100%;
+.detail-create-simple-task{
+ margin-top: 2%;
 }
 
-.log-form-detail .label-tag{
-    width: 10%;
+.detail-content-update-save{
+ display: flex;
+ justify-content: space-between;
+}
+.detail-content-update-save p{
+ width: 15%;
 }
 
-.log-form input.button{
-    padding: 0.5% 0.5%;
-    align-items: flex-end;
-    margin-left: 45%;
+.detail-content-update-save p a{
+ padding: 1% 5%;
+ color: #f4f4f4;
+ border: 4px solid #72A56C;
+ border-radius: 5px;
+ background: #72A56C;
+ cursor: pointer;
+ text-decoration: none;
+ align-items: end;
 }
-

@@ -4,25 +4,12 @@
     Create task
 {% endblock %}
 {% block page %}
-    <div class="auth-container">
+    <div class="create-container">
         <form class="log-form" method="post">
-            <h2>Log in</h2>
+            <h2>Create Task</h2>
             {% csrf_token %}
             {% bootstrap_form form %}
-            <p><input type="submit" class="button" value="Log in"></p>
+            <p><input type="submit" class="button" value="Create"></p>
         </form>
     </div>
-{#<div class="main-content">#}
-{#    <div class="task-form">#}
-{#        <form method="post" class="task-create">#}
-{#            {% csrf_token %}#}
-{#            {% for elem in form %}#}
-{#               <div class="{{ elem.id_for_label }}">#}
-{#                   {{ elem.label_tag }} {{ elem }}#}
-{#               </div>#}
-{#            {% endfor %}#}
-{#            <p><input type="submit" class="button" value="Add task"></p>#}
-{#        </form>#}
-{#    </div>#}
-{#</div>#}
 {% endblock %}
