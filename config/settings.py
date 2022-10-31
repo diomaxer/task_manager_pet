@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-%@e2(1&a#o5olk#d!kv^2
 DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
 
 ALLOWED_HOSTS = [
-    'spooky-plague-91000.herokuapp.com',
+    'creepy-catacombs-56008.herokuapp.com',
     '127.0.0.1',
 ]
 
