@@ -7,13 +7,19 @@
             <p class="">Create task</p>
         </a>
     </div>
-    {% for task in tasks %}
-    <div class="task-link">
-        <a href="{% url 'task-detail' task.id %}">
-            <p class="task-name ">{{ task }}</p>
-            <p class="task-done">{% if task.done %}Done{% else %}In progress{% endif %}</p>
-        </a>
-    </div>
-    {% endfor %}
+    {% if tasks %}
+        {% for task in tasks %}
+        <div class="task-link">
+            <a href="{% url 'task-detail' task.id %}">
+                <p class="task-name ">{{ task }}</p>
+                <p class="task-done">{% if task.done %}Done{% else %}In progress{% endif %}</p>
+            </a>
+        </div>
+        {% endfor %}
+    {% else %}
+        <div class="no-task-message">
+            <p>No tasks here yet</p>
+        </div>
+    {% endif %}
 </div>
 {% endblock %}

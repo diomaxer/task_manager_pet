@@ -44,6 +44,10 @@ body{
  background: #F1E7E8;
 }
 
+.no-task-message{
+ text-align: center;
+}
+
 .tasks{
  margin: 10%;
 }
