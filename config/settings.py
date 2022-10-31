@@ -92,17 +92,28 @@ WSGI_APPLICATION = 'config.wsgi.application'
 #     }
 # }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'HOST': os.environ.get('POSTGRES_HOST', 'localhost'),
+#         'NAME': os.environ.get('POSTGRES_DB', 'db_name'),
+#         'USER': os.environ.get('POSTGRES_USER', 'username'),
+#         'PASSWORD': os.environ.get('POSTGRES_PASSWORD', 'password'),
+#         'PORT': os.environ.get('POSTGRES_PORT', '5432'),
+#     }
+# }
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'HOST': os.environ.get('POSTGRES_HOST', 'localhost'),
-        'NAME': os.environ.get('POSTGRES_DB', 'db_name'),
-        'USER': os.environ.get('POSTGRES_USER', 'username'),
-        'PASSWORD': os.environ.get('POSTGRES_PASSWORD', 'password'),
+        'HOST': os.environ.get('POSTGRES_HOST', 'ec2-34-241-90-235.eu-west-1.compute.amazonaws.com'),
+        'NAME': os.environ.get('POSTGRES_DB', 'dbof6eptimeqgf'),
+        'USER': os.environ.get('POSTGRES_USER', 'bfciatkqmlwckh'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD', '19997b9a3f79cb5978d5c10edba361eb576d82c21e1d8fe1acced865208f5eb8'),
         'PORT': os.environ.get('POSTGRES_PORT', '5432'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
