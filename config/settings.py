@@ -25,6 +25,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-%@e2(1&a#o5olk#d!kv^2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
 
+
 ALLOWED_HOSTS = [
     'creepy-catacombs-56008.herokuapp.com',
     '127.0.0.1',
@@ -107,10 +108,10 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'HOST': os.environ.get('POSTGRES_HOST', 'ec2-34-241-90-235.eu-west-1.compute.amazonaws.com'),
-        'NAME': os.environ.get('POSTGRES_DB', 'dbof6eptimeqgf'),
-        'USER': os.environ.get('POSTGRES_USER', 'bfciatkqmlwckh'),
-        'PASSWORD': os.environ.get('POSTGRES_PASSWORD', '19997b9a3f79cb5978d5c10edba361eb576d82c21e1d8fe1acced865208f5eb8'),
+        'HOST': os.environ.get('POSTGRES_HOST', 'host'),
+        'NAME': os.environ.get('POSTGRES_DB', 'database'),
+        'USER': os.environ.get('POSTGRES_USER', 'postgres'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD', 'password'),
         'PORT': os.environ.get('POSTGRES_PORT', '5432'),
     }
 }
@@ -150,10 +151,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'static'),
-# ]
+
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
