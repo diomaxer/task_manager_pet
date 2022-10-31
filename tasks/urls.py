@@ -8,3 +8,5 @@ urlpatterns = [
     path('<int:pk>', task_detail, name='task-detail'),
     path('<int:pk>/update', task_detail_update, name='task-detail-update'),
 ]
+
+handler404 = 'tasks.views.page_not_found_view'

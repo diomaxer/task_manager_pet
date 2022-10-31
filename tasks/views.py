@@ -116,3 +116,7 @@ def task_detail_update(request, pk):
 
 def html_view(request):
     return render(request, 'boot.html', {})
+
+
+def page_not_found_view(request, exception):
+    return render(request, '404.html', status=404)

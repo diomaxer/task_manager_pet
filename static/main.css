@@ -232,3 +232,9 @@ nav a:hover{
  text-decoration: none;
  align-items: end;
 }
+
+.page-404{
+ margin: 10% 20%;
+ color: #608C5B;
+ font-size: 8vh;
+}
