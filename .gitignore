@@ -49,7 +49,6 @@ var/
 *.egg-info/
 .installed.cfg
 *.egg
-migrations/
 
 __init__.py
 # PyInstaller
