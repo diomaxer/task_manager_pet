@@ -11,6 +11,6 @@ Possibilities:
     4) Minitasks
     5) Auth
 
-Stack: Django, postgres, html, css
+Stack: Django, postgres, html, css, bootstrap5
 
 Link on working project: https://creepy-catacombs-56008.herokuapp.com/
